@@ -1,0 +1,35 @@
+<h1>Users List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>D_id</th>
+      <th>First_name</th>
+      <th>Last_name</th>
+      <th>Address</th>
+      <th>Age</th>
+      <th>Email</th>
+
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.department_id %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.address %></td>
+        <td><%= user.age %></td>
+        <td><%= user.email %></td>
+        <td>
+          <%= link_to 'Show', user, class: 'btn btn-info' %>
+          <%= link_to 'Edit', edit_user_path(user), class: 'btn btn-warning' %>
+          <%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New User', new_user_path, class: 'btn btn-primary' %>

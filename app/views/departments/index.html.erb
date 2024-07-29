@@ -1,0 +1,24 @@
+<h1>Departments</h1>
+
+<%= link_to 'New Department', new_department_path, class: 'btn btn-primary' %>
+
+<table>
+  <thead>
+    <tr>
+      <th>D_name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @Departments.each do |department| %>
+      <tr>
+        <td><%= department.d_name %></td>
+        <td>
+          <%= link_to 'Show', department_path(department), class: 'btn btn-info' %>
+          <%= link_to 'Edit', edit_department_path(department), class: 'btn btn-warning' %>
+          <%= link_to 'Destroy', department_path(department), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
